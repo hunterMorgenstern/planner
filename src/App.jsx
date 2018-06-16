@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
+import BigCalendar from 'react-big-calendar';
+import moment from 'moment';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './App.css';
+
+BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
 class App extends Component {
   render() {
@@ -9,8 +14,12 @@ class App extends Component {
         <div>
           Woah cool bananas!
         </div>
-        <div>
-          a calendar
+        <div className='calendar'>
+        <BigCalendar
+      events={['myEventsList']}
+      // startAccessor={moment().startOf('year')}
+      // endAccessor={moment().endOf("year")}
+    />
         </div>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -25,3 +34,5 @@ class App extends Component {
 }
 
 export default App;
+
+
